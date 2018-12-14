@@ -1,8 +1,8 @@
 
 
 # Instrucciones para correr el front
-
-1- npm install
+ 
+1- npm install <br/>
 2- Levantar el projecto con npm start . 
 
 
