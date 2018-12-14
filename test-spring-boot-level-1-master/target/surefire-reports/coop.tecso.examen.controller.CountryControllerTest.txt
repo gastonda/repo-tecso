@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: coop.tecso.examen.controller.CountryControllerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.041 s - in coop.tecso.examen.controller.CountryControllerTest

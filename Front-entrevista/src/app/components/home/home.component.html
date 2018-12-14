@@ -1,0 +1,73 @@
+<div class="row mb-3">
+  <div class="card col-8" style="border-color: #808b96">
+    <div class="card-body">
+        <h4 class="card-title"><a>Nueva Cuenta :</a></h4>
+        <form [formGroup]="accountForm" (ngSubmit)="createAccount()" novalidate>
+        <div class="md-form input-group mb-6">
+            <div class="col-4 mr-1 mb-2">
+                    <!-- First name -->
+                    <div class="input-group-prepend">
+                            <span class="input-group-text md-addon">Moneda</span>
+                    </div>    
+                    <select class="browser-default custom-select mr-1 " formControlName="currency" minlength="1" required>
+                        <option  *ngFor="let c of currencies" [value]="c.name">
+                           {{c.name}}
+                        </option>
+                    </select>
+            </div>
+            <div class="col-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text md-addon">Balance: </span>
+                </div>
+                <input type="number"  formControlName="balance" minlength="1" class="form-control" required>
+            </div>        
+        </div> 
+        <div class="col-12">
+            <button type="submit" class="btn btn-outline-primary waves-effect float-right">Crear Cuenta</button>
+        </div>
+        </form>
+    </div>
+  </div>
+</div>
+<div class="row mt-3 mb-3  alert alert-success" role="alert" id="newAccountOk" style="display: none">
+        Nueva cuenta creada.
+</div>
+<div class="row mt-3 mb-3  alert alert-danger" role="alert" id="newAccountFail" style="display: none">
+        No se pudo crear la cuenta.
+</div>
+<div class="row mt-3 mb-3  alert alert-danger" role="alert" id="fieldsRequired" style="display: none">
+        Complete todos los campos.
+</div>
+<div class="row mt-3 mb-3  alert alert-danger" role="alert" id="accountDeleted" style="display: none">
+        Cuenta eliminada
+</div>
+<div class="row mt-3 mb-3  alert alert-danger" role="alert" id="accountWithMovements" style="display: none">
+        No se pueden eliminar cuentas que contengan movimientos.
+</div>
+<div class="row">
+    <div class="card col mb-3" style="border-color: #808b96">
+      <div class="card-body">
+        <div class="table-responsive col " id="todosclientes">
+          <table class="table table-hover" style="border-spacing:0;" id="">  
+            <tr class="" style="">
+                <th> ID </th>
+                <th> Moneda </th>
+                <th> Monto     </th>
+                <th> Fecha creacion  </th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let account of currentAccounts">
+                <td> {{ account.id }} </td>
+                <td> {{ account.currency }} </td>
+                <td> {{ account.balance }}    </td>
+                <td>   </td>
+                <td> <button type="button" (click)= "getMovements(account.id)"  class="btn-sm btn-outline-info waves-effect mr-1">Ver Movimientos <i class="fa fa-folder-open-o" aria-hidden="true"></i></button>  
+                    <button type="button" (click)= "deleteAccount(account.id)"  class="btn-sm btn-outline-danger waves-effect">Eliminar cuenta <i class="fa fa-trash" aria-hidden="true"></i></button>
+                </td>
+            </tr>
+          </table> 
+      </div>
+    </div> 
+	</div>
+</div>
+
