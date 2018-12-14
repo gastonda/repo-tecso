@@ -1,3 +1,13 @@
+
+
+# Instrucciones para correr el front
+
+1- npm install
+2- Levantar el projecto con npm start . 
+
+
+
+
 # EntrevistaFront2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
